@@ -27,7 +27,7 @@ public class Main {
 
         double s = m * Math.pow((1 + k / 100), n);
 
-        System.out.printf("At the end of the deposit period You will have $%1.00f", s);
+        System.out.printf("At the end of the deposit period (in %d months) You will have $%2.00f", (int) n, s);
     }
 
     public static double readNum() {
