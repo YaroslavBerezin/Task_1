@@ -1,4 +1,4 @@
-// V1.04
+// V1.05
 
 package ru.vsu.sc.berezin_y_a;
 
@@ -14,6 +14,7 @@ public class Main {
     }
 
     public static void findSumOfDeposit() {
+
         Locale.setDefault(Locale.ROOT);
 
         System.out.print("Enter the deposit amount ($): ");
@@ -28,6 +29,7 @@ public class Main {
         double s = m * Math.pow((1 + k / 100), n);
 
         System.out.printf("At the end of the deposit period (in %d months) You will have $%2.00f", (int) n, s);
+
     }
 
     public static double readNum() {
