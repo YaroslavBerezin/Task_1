@@ -1,4 +1,4 @@
-// V1.02
+// V1.04
 
 package ru.vsu.sc.berezin_y_a;
 
