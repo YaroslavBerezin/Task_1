@@ -1,5 +1,3 @@
-// V1.06
-
 package ru.vsu.sc.berezin_y_a;
 
 import java.util.Locale;
@@ -9,37 +7,42 @@ public class Main {
 
     public static void main(String[] args) {
 
-        findSumOfDeposit();
+        Locale.setDefault(Locale.ROOT);
+
+        double depositAmount = readNum("Enter the deposit amount ($): ");
+        checkNum(depositAmount);
+
+        double interestRate = readNum("Enter the interest rate (%): ");
+        checkNum(interestRate);
+
+        double depositTerm = readNum("Enter the deposit term (months): ");
+        checkNum(depositTerm);
+
+        double depositSum = logic(depositAmount, interestRate, depositTerm);
+
+        printAnswer(depositAmount, depositSum);
 
     }
 
-    static void findSumOfDeposit() {
+    static void printAnswer(double N, double S) {
+        System.out.printf("At the end of the deposit period (in %d months) You will have $%2.00f", (int) N, S);
+    }
 
-        Locale.setDefault(Locale.ROOT);
+    static double readNum(String text) {
+        System.out.print(text);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
 
-        System.out.print("Enter the deposit amount ($): ");
-        double m = readNum();
-
-        if (m < 0) {
+    static void checkNum(double num) {
+        if (num < 0) {
             System.out.println("Error");
             System.exit(0);
         }
-
-        System.out.print("Enter the interest rate (%): ");
-        double k = readNum();
-
-        System.out.print("Enter the deposit term (months): ");
-        double n = readNum();
-
-        double s = m * Math.pow((1 + k / 100), n);
-
-        System.out.printf("At the end of the deposit period (in %d months) You will have $%2.00f", (int) n, s);
-
     }
 
-    static double readNum() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+    static double logic(double M, double K, double N) {
+        return (M * Math.pow((1 + K / 100), N));
     }
 
 }
