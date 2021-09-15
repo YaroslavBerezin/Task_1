@@ -1,4 +1,4 @@
-// V1.05
+// V1.06
 
 package ru.vsu.sc.berezin_y_a;
 
@@ -13,12 +13,17 @@ public class Main {
 
     }
 
-    public static void findSumOfDeposit() {
+    static void findSumOfDeposit() {
 
         Locale.setDefault(Locale.ROOT);
 
         System.out.print("Enter the deposit amount ($): ");
         double m = readNum();
+
+        if (m < 0) {
+            System.out.println("Error");
+            System.exit(0);
+        }
 
         System.out.print("Enter the interest rate (%): ");
         double k = readNum();
@@ -32,7 +37,7 @@ public class Main {
 
     }
 
-    public static double readNum() {
+    static double readNum() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
